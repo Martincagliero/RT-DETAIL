@@ -13,10 +13,10 @@ interface MotorcycleImage {
 }
 
 const motorcycleImages: MotorcycleImage[] = [
-  { id: 1, src: '/videos/motos/1.jpg', alt: 'Detailing profesional de motocicleta', width: 600, height: 800 },
-  { id: 2, src: '/videos/motos/2.jpg', alt: 'Moto deportiva con acabado premium', width: 600, height: 800 },
-  { id: 3, src: '/videos/motos/3.jpg', alt: 'Trabajo especializado en motos', width: 600, height: 800 },
-  { id: 4, src: '/videos/motos/5.jpg', alt: 'Pulido y sellado en motocicletas', width: 600, height: 800 },
+  { id: 1, src: '/motorcycles/1.jpg', alt: 'Detailing profesional de motocicleta', width: 600, height: 800 },
+  { id: 2, src: '/motorcycles/2.jpg', alt: 'Moto deportiva con acabado premium', width: 600, height: 800 },
+  { id: 3, src: '/motorcycles/3.jpg', alt: 'Trabajo especializado en motos', width: 600, height: 800 },
+  { id: 4, src: '/motorcycles/5.jpg', alt: 'Pulido y sellado en motocicletas', width: 600, height: 800 },
 ];
 
 export default function MotorcyclesGallery() {

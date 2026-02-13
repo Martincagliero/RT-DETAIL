@@ -15,10 +15,10 @@ interface MediaItem {
 // Galería con imágenes y videos reales
 const galleryMedia: MediaItem[] = [
   // MOTOS - IMÁGENES REALES
-  { id: 1, type: 'image', src: '/videos/motos/1.jpg', alt: 'Detailing profesional de motocicleta' },
-  { id: 2, type: 'image', src: '/videos/motos/2.jpg', alt: 'Moto deportiva con acabado premium' },
-  { id: 3, type: 'image', src: '/videos/motos/3.jpg', alt: 'Trabajo especializado en motos' },
-  { id: 4, type: 'image', src: '/videos/motos/5.jpg', alt: 'Pulido y sellado en motocicletas' },
+  { id: 1, type: 'image', src: '/motorcycles/1.jpg', alt: 'Detailing profesional de motocicleta' },
+  { id: 2, type: 'image', src: '/motorcycles/2.jpg', alt: 'Moto deportiva con acabado premium' },
+  { id: 3, type: 'image', src: '/motorcycles/3.jpg', alt: 'Trabajo especializado en motos' },
+  { id: 4, type: 'image', src: '/motorcycles/5.jpg', alt: 'Pulido y sellado en motocicletas' },
   
   // VIDEOS DE PROCESOS
   { id: 5, type: 'video', src: '/videos/motos/principal.mp4', alt: 'Proceso de detailing en motocicleta' },
