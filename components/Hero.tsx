@@ -26,19 +26,21 @@ export default function Hero() {
   ];
 
   useEffect(() => {
-    // Animate title letters with stagger
+    // Animate title letters with stagger - with blur reveal
     const letters = document.querySelectorAll('.hero-letter');
     gsap.fromTo(
       letters,
       {
         opacity: 0,
         y: 100,
-        rotateX: -90
+        rotateX: -90,
+        filter: 'blur(10px)'
       },
       {
         opacity: 1,
         y: 0,
         rotateX: 0,
+        filter: 'blur(0px)',
         duration: 1.2,
         ease: 'power4.out',
         stagger: 0.05,
@@ -46,16 +48,18 @@ export default function Hero() {
       }
     );
 
-    // Animate subtitle
+    // Animate subtitle with fade-in
     gsap.fromTo(
       '.hero-subtitle',
       {
         opacity: 0,
-        y: 50
+        y: 50,
+        filter: 'blur(8px)'
       },
       {
         opacity: 1,
         y: 0,
+        filter: 'blur(0px)',
         duration: 1,
         ease: 'power3.out',
         delay: 2.8
@@ -137,8 +141,8 @@ export default function Hero() {
         style={{ opacity }}
       >
         {/* Main Title */}
-        <div className="mb-4 overflow-hidden">
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] leading-none">
+        <div className="mb-4 overflow-hidden max-h-[15vh]">
+          <h1 className="font-display leading-tight" style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}>
             {titleText.split('').map((letter, i) => (
               <span
                 key={i}
@@ -152,9 +156,16 @@ export default function Hero() {
         </div>
 
         {/* Subtitle */}
-        <div className="overflow-hidden">
-          <h2 className="hero-subtitle font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/90 tracking-wider">
-            {subtitleText}
+        <div className="overflow-hidden max-h-[12vh]">
+          <h2 className="hero-subtitle font-display text-white/90 tracking-wide" style={{ fontSize: 'clamp(1.25rem, 4.5vw, 2.75rem)' }}>
+            {subtitleText.split(' ').map((word, i) => (
+              <span
+                key={i}
+                className={word === 'DETALLE' ? 'relative inline-block ml-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gradient-to-r after:from-white/30 after:via-white/60 after:to-white/30' : 'inline-block mr-2'}
+              >
+                {word}
+              </span>
+            ))}
           </h2>
         </div>
 
