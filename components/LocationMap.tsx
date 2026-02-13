@@ -1,136 +1,65 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function LocationMap() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-[#0d0d0d] to-black"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Título de la sección */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+            Nuestra ubicación
+          </h2>
+          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
+            Estamos en Martínez, San Isidro. Te esperamos.
+          </p>
+        </div>
 
-  useEffect(() => {
-    if (map.current || !mapContainer.current) return;
-
-    let maplibregl: any;
-    
-    const initMap = async () => {
-      try {
-        maplibregl = (await import('maplibre-gl')).default;
-        await import('maplibre-gl/dist/maplibre-gl.css');
-
-        // Coordenadas de Martínez, San Isidro
-        const coordinates: [number, number] = [-58.5084, -34.4871];
-
-        map.current = new maplibregl.Map({
-          container: mapContainer.current,
-          style: {
-            version: 8,
-            sources: {
-              'carto-dark': {
-                type: 'raster',
-                tiles: [
-                  'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                  'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                  'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
-                ],
-                tileSize: 256,
-                attribution: '&copy; CARTO'
-              }
-            },
-            layers: [
-              {
-                id: 'carto-dark-layer',
-                type: 'raster',
-                source: 'carto-dark',
-                minzoom: 0,
-                maxzoom: 22
-              }
-            ]
-          },
-          center: coordinates,
-          zoom: 15,
-          attributionControl: false
-        });
-
-        // Control de navegación
-        map.current.addControl(
-          new maplibregl.NavigationControl({
-            visualizePitch: false
-          }),
-          'top-right'
-        );
-
-        // Crear marcador personalizado
-        const markerElement = document.createElement('div');
-        markerElement.className = 'custom-marker';
-        markerElement.style.cssText = `
-          width: 40px;
-          height: 40px;
-          background: linear-gradient(135deg, #a0a0a0 0%, #707070 100%);
-          border: 3px solid #ffffff;
-          border-radius: 50% 50% 50% 0;
-          transform: rotate(-45deg);
-          box-shadow: 0 4px 15px rgba(160, 160, 160, 0.4);
-          cursor: pointer;
-          transition: all 0.3s ease;
-        `;
-
-        // Efecto hover en el marcador
-        markerElement.addEventListener('mouseenter', () => {
-          markerElement.style.transform = 'rotate(-45deg) scale(1.1)';
-          markerElement.style.boxShadow = '0 6px 20px rgba(160, 160, 160, 0.6)';
-        });
-        
-        markerElement.addEventListener('mouseleave', () => {
-          markerElement.style.transform = 'rotate(-45deg) scale(1)';
-          markerElement.style.boxShadow = '0 4px 15px rgba(160, 160, 160, 0.4)';
-        });
-
-        // Popup con información
-        const popup = new maplibregl.Popup({
-          offset: 25,
-          closeButton: false,
-          className: 'rt-detail-popup'
-        }).setHTML(`
-          <div style="padding: 4px 0; color: #ffffff;">
-            <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 6px 0; background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-              RT DETAIL
-            </h3>
-            <p style="font-size: 13px; margin: 0 0 8px 0; color: #d1d1d1; line-height: 1.4;">
-              Detailing automotriz<br/>de alto nivel
-            </p>
-            <p style="font-size: 12px; margin: 0 0 4px 0; color: #a0a0a0;">
-              📍 Martínez, San Isidro<br/>Buenos Aires, Argentina
-            </p>
-            <p style="font-size: 12px; margin: 0; color: #a0a0a0;">
-              📞 +54 9 11 6850-8827
-            </p>
+        {/* Contenedor del mapa */}
+        <div className="w-full max-w-5xl mx-auto">
+          <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-800 ring-1 ring-gray-700/50">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26281.15835!2d-58.5184!3d-34.4871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1c6e7b7c7c7%3A0x1!2sMart%C3%ADnez%2C%20San%20Isidro%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890!5m2!1ses!2sar&style=feature:all|element:geometry|color:0x212121&style=feature:all|element:labels.text.fill|color:0x757575&style=feature:all|element:labels.text.stroke|color:0x212121&style=feature:administrative|element:geometry|color:0x757575&style=feature:road|element:geometry.fill|color:0x2c2c2c&style=feature:water|element:geometry|color:0x000000"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(85%)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación RT Detail - Martínez, San Isidro"
+            />
           </div>
-        `);
+        </div>
 
-        // Agregar marcador al mapa
-        new maplibregl.Marker({ element: markerElement })
-          .setLngLat(coordinates)
-          .setPopup(popup)
-          .addTo(map.current);
-
-        // Animación de entrada del marcador
-        setTimeout(() => {
-          markerElement.style.animation = 'markerBounce 0.6s ease-out';
-        }, 500);
-
-        setIsLoaded(true);
-      } catch (error) {
-        console.error('Error loading map:', error);
-      }
-    };
-
-    initMap();
-
-    return () => {
-      map.current?.remove();
-    };
-  }, []);
+        {/* Información de contacto debajo del mapa */}
+        <div className="mt-8 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-gray-400">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">📍</span>
+              <span className="text-sm sm:text-base">Martínez, San Isidro, Buenos Aires</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">📞</span>
+              <a 
+                href="tel:+5491168508827" 
+                className="text-sm sm:text-base hover:text-white transition-colors"
+              >
+                +54 9 11 6850-8827
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
 
   return (
     <motion.section
