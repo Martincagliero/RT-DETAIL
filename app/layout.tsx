@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "RT Detail - Perfección en cada detalle",
   description: "Taller premium de detailing automotriz. Sellados, pulidos, tapizados y más.",
   keywords: ["detailing", "automotriz", "sellado", "pulido", "tapizado", "RT Detail"],
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
