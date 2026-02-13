@@ -291,8 +291,10 @@ export default function ServiceCard({ service, index }: { service: Service; inde
                             src={src}
                             alt={`${service.title} ${idx + 1}`}
                             fill
-                            sizes="(min-width: 640px) 33vw, 100vw"
-                            quality={70}
+                            sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 100vw"
+                            quality={55}
+                            loading="lazy"
+                            fetchPriority="low"
                             className="object-cover"
                           />
                         )}
