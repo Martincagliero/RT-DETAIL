@@ -12,22 +12,17 @@ interface MediaItem {
   alt: string;
 }
 
-// Puedes mezclar imágenes y videos
+// Galería con imágenes y videos reales
 const galleryMedia: MediaItem[] = [
-  // ÓPTICOS (FOTOS)
-  { id: 1, type: 'image', src: '/images/gallery/opticos-1.jpg', alt: 'Pulido de ópticos antes y después' },
-  { id: 2, type: 'image', src: '/images/gallery/opticos-2.jpg', alt: 'Detail ópticos restaurados' },
+  // MOTOS - IMÁGENES REALES
+  { id: 1, type: 'image', src: '/videos/motos/1.jpg', alt: 'Detailing profesional de motocicleta' },
+  { id: 2, type: 'image', src: '/videos/motos/2.jpg', alt: 'Moto deportiva con acabado premium' },
+  { id: 3, type: 'image', src: '/videos/motos/3.jpg', alt: 'Trabajo especializado en motos' },
+  { id: 4, type: 'image', src: '/videos/motos/5.jpg', alt: 'Pulido y sellado en motocicletas' },
   
-  // SELLADOS (FOTOS)
-  { id: 3, type: 'image', src: '/images/gallery/sellados-1.jpg', alt: 'Aplicación de sellado cerámico' },
-  { id: 4, type: 'image', src: '/images/gallery/sellados-2.jpg', alt: 'Brillos del sellado cerámico' },
-  
-  // VIDEOS DE PROCESOS (Resto de servicios)
-  { id: 5, type: 'video', src: '/videos/proceso/01-tapizados.mp4', alt: 'Process tapizado de interiores' },
-  { id: 6, type: 'video', src: '/videos/proceso/02-ruedas.mp4', alt: 'Process detailing ruedas' },
-  { id: 7, type: 'video', src: '/videos/proceso/03-interiores.mp4', alt: 'Process limpieza interior' },
-  { id: 8, type: 'video', src: '/videos/proceso/04-chasis.mp4', alt: 'Process trabajo en chasis' },
-  { id: 9, type: 'video', src: '/videos/proceso/05-motor.mp4', alt: 'Process pulido motor' },
+  // VIDEOS DE PROCESOS
+  { id: 5, type: 'video', src: '/videos/motos/principal.mp4', alt: 'Proceso de detailing en motocicleta' },
+  { id: 6, type: 'video', src: '/videos/motos/detalle.mp4', alt: 'Detalles de trabajo especializado' },
 ];
 
 export default function MixedGallery() {
@@ -103,9 +98,8 @@ export default function MixedGallery() {
               viewport={{ once: false, amount: 0.1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => setSelectedMedia(media.id)}
-              whileHover={{ scale: 0.98 }}
             >
-              <div className="relative overflow-hidden rounded-sm bg-graphite-900 aspect-[4/5]">
+              <div className="relative overflow-hidden rounded-sm bg-graphite-900 aspect-[4/5] transition-transform duration-300 ease-out group-hover:scale-[1.08]">
                 {media.type === 'video' ? (
                   <>
                     {/* Video preview */}
@@ -139,30 +133,27 @@ export default function MixedGallery() {
                 ) : (
                   <>
                     {/* Image */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-graphite-700 via-graphite-800 to-graphite-900" />
                     <Image
                       src={media.src}
                       alt={media.alt}
                       fill
-                      className="object-cover opacity-0"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
+                      className="object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </>
                 )}
 
                 {/* Hover overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-deep-black/90 via-deep-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
+                <div
+                  className="absolute inset-0 bg-deep-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out flex items-center justify-center"
                 >
-                  <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-white font-semibold text-lg mb-2">
+                  <div className="text-center px-4">
+                    <p className="text-white font-semibold text-sm md:text-base tracking-wide opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       {media.alt}
                     </p>
-                    <div className="h-px w-16 bg-white/50" />
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Border */}
                 <div className="absolute inset-0 border border-white/10 group-hover:border-white/30 transition-colors duration-300" />
@@ -223,18 +214,13 @@ export default function MixedGallery() {
                   <source src={currentMedia.src} type="video/mp4" />
                 </video>
               ) : (
-                <>
-                  <div className="absolute inset-0 bg-gradient-to-br from-graphite-700 via-graphite-800 to-graphite-900" />
-                  <Image
-                    src={currentMedia.src}
-                    alt={currentMedia.alt}
-                    fill
-                    className="object-contain opacity-0"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                </>
+                <Image
+                  src={currentMedia.src}
+                  alt={currentMedia.alt}
+                  fill
+                  className="object-contain"
+                  priority
+                />
               )}
             </motion.div>
 
