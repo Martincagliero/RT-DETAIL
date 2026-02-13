@@ -82,16 +82,16 @@ export default function Footer() {
             {/* Email Button - Premium Style */}
             <motion.a
               href="mailto:rtdetailcontacto@gmail.com?subject=Solicitud%20de%20turno%20RT%20Detail&body=Hola%2C%20quiero%20agendar%20un%20turno%20para%20detailing."
-              className="group relative px-8 py-4 md:px-10 md:py-5 bg-gradient-to-br from-gray-100 to-gray-200 text-deep-black font-semibold tracking-wider rounded-[14px] overflow-hidden transition-all duration-300 inline-flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl"
+              className="group relative px-8 py-4 md:px-10 md:py-5 bg-gradient-to-br from-gray-100 to-gray-200 text-deep-black font-semibold tracking-wider rounded-[14px] overflow-hidden transition-all duration-300 flex items-center justify-center gap-[10px] shadow-lg hover:shadow-2xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* SVG Envelope Icon - Minimalist */}
-              <svg className="w-5 h-5 md:w-6 md:h-6 relative z-10 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              {/* SVG Envelope Icon - Perfectly Aligned */}
+              <svg className="w-[22px] h-[22px] md:w-[22px] md:h-[22px] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                 <path d="M22 6l-10 7L2 6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
               </svg>
-              <span className="relative z-10 text-sm md:text-base font-bold">ENVIAR MAIL</span>
+              <span className="text-sm md:text-base font-semibold uppercase">ENVIAR MAIL</span>
               
               {/* Hover background animation */}
               <motion.div
@@ -106,15 +106,15 @@ export default function Footer() {
             <motion.a
               href="https://wa.me/5491123392274?text=Hola%2C%20quiero%20agendar%20un%20turno%20para%20detailing."
               onClick={handleWhatsAppClick}
-              className="group relative px-8 py-4 md:px-10 md:py-5 bg-gradient-to-br from-[#25D366] to-[#20ba5a] text-white font-semibold tracking-wider rounded-[14px] overflow-hidden transition-all duration-300 inline-flex items-center justify-center gap-2 md:gap-3 shadow-lg hover:shadow-2xl"
+              className="group relative px-8 py-4 md:px-10 md:py-5 bg-gradient-to-br from-[#25D366] to-[#20ba5a] text-white font-semibold tracking-wider rounded-[14px] overflow-hidden transition-all duration-300 flex items-center justify-center gap-[10px] shadow-lg hover:shadow-2xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Official WhatsApp Icon - Clean SVG */}
-              <svg className="w-5 h-5 md:w-[22px] md:h-[22px] relative z-10 flex-shrink-0" fill="white" viewBox="0 0 24 24">
+              {/* Official WhatsApp Icon - Perfectly Aligned */}
+              <svg className="w-[22px] h-[22px] md:w-[22px] md:h-[22px] flex-shrink-0" fill="white" viewBox="0 0 24 24">
                 <path d="M12,2C6.5,2 2,6.5 2,12C2,13.8 2.5,15.5 3.2,17L2,22L7.1,20.8C8.8,21.6 10.8,22 12,22C17.5,22 22,17.5 22,12C22,6.5 17.5,2 12,2M12,20C10.2,20 8.6,19.5 7.2,18.7L7,18.6L4.5,19.3L5.2,16.9L5,16.7C4.1,15.3 3.6,13.7 3.6,12C3.6,7.4 7.4,3.6 12,3.6C16.6,3.6 20.4,7.4 20.4,12C20.4,16.6 16.6,20 12,20M18.7,14.3C18.4,14.1 17,13.4 16.7,13.3C16.5,13.2 16.3,13.2 16.1,13.4C15.9,13.6 15.3,14.3 15.1,14.5C15,14.7 14.8,14.7 14.6,14.6C13.4,14 12.3,13.2 11.5,12.2C11.2,11.8 11.5,11.8 11.8,11.5C11.9,11.4 12,11.2 12.2,11C12.3,10.8 12.3,10.6 12.1,10.5C11.9,10.4 11.3,9.2 11.1,8.7C10.8,8.1 10.5,8.2 10.3,8.2C10.1,8.2 9.9,8.2 9.7,8.2C9.5,8.2 9.1,8.4 8.9,8.6C8.7,8.8 8.1,9.5 8.1,10.7C8.1,11.9 8.8,13 8.9,13.2C9.1,13.4 11.3,16.5 14.6,17.8C15.7,18.3 16.5,18.5 17.1,18.7C18.2,19.1 19.2,19 19.9,18.9C20.6,18.8 22,18.3 22.2,17.7C22.4,17.1 22.4,16.6 22.3,16.5C22.3,16.3 22.1,16.2 21.9,16.1Z"/>
               </svg>
-              <span className="relative z-10 text-sm md:text-base font-bold">WHATSAPP</span>
+              <span className="text-sm md:text-base font-semibold uppercase">WHATSAPP</span>
               
               {/* Hover background animation */}
               <motion.div
