@@ -26,35 +26,14 @@ export default function Hero() {
   ];
 
   useEffect(() => {
-    // Animate title letters with stagger - with blur reveal
+    // Animate title letters with subtle fade/blur/translate
     const letters = document.querySelectorAll('.hero-letter');
     gsap.fromTo(
       letters,
       {
         opacity: 0,
-        y: 100,
-        rotateX: -90,
-        filter: 'blur(10px)'
-      },
-      {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        filter: 'blur(0px)',
-        duration: 1.2,
-        ease: 'power4.out',
-        stagger: 0.05,
-        delay: 2.2
-      }
-    );
-
-    // Animate subtitle with fade-in
-    gsap.fromTo(
-      '.hero-subtitle',
-      {
-        opacity: 0,
-        y: 50,
-        filter: 'blur(8px)'
+        y: 24,
+        filter: 'blur(6px)'
       },
       {
         opacity: 1,
@@ -62,7 +41,26 @@ export default function Hero() {
         filter: 'blur(0px)',
         duration: 1,
         ease: 'power3.out',
-        delay: 2.8
+        stagger: 0.03,
+        delay: 2.2
+      }
+    );
+
+    // Animate subtitle with fade/blur/translate
+    gsap.fromTo(
+      '.hero-subtitle',
+      {
+        opacity: 0,
+        y: 20,
+        filter: 'blur(6px)'
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.9,
+        ease: 'power3.out',
+        delay: 2.6
       }
     );
 
@@ -85,8 +83,8 @@ export default function Hero() {
     }
   }, [currentVideo]);
 
-  const titleText = 'PERFECCIÓN';
-  const subtitleText = 'EN CADA DETALLE';
+  const titleText = 'RT DETAIL';
+  const subtitleText = 'Detailing automotriz de alto nivel';
 
   return (
     <section
@@ -137,12 +135,15 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 flex h-full flex-col items-center justify-center px-4"
+        className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center"
         style={{ opacity }}
       >
         {/* Main Title */}
-        <div className="mb-4 overflow-hidden max-h-[15vh]">
-          <h1 className="font-display leading-tight" style={{ fontSize: 'clamp(4rem, 9vw, 7rem)' }}>
+        <div className="mb-6 overflow-hidden max-h-[18vh]">
+          <h1
+            className="font-display leading-tight tracking-[0.08em] max-w-[65vw] mx-auto"
+            style={{ fontSize: 'clamp(3.5rem, 7vw, 6.5rem)' }}
+          >
             {titleText.split('').map((letter, i) => (
               <span
                 key={i}
@@ -157,24 +158,20 @@ export default function Hero() {
 
         {/* Subtitle */}
         <div className="overflow-hidden max-h-[12vh]">
-          <h2 className="hero-subtitle font-display text-white/90 tracking-wide" style={{ fontSize: 'clamp(1.25rem, 4.5vw, 2.75rem)' }}>
-            {subtitleText.split(' ').map((word, i) => (
-              <span
-                key={i}
-                className={word === 'DETALLE' ? 'relative inline-block ml-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gradient-to-r after:from-white/30 after:via-white/60 after:to-white/30' : 'inline-block mr-2'}
-              >
-                {word}
-              </span>
-            ))}
+          <h2
+            className="hero-subtitle text-white/70 font-medium tracking-[0.12em]"
+            style={{ fontSize: 'clamp(1.1rem, 2.6vw, 2rem)' }}
+          >
+            {subtitleText}
           </h2>
         </div>
 
         {/* Decorative line */}
         <motion.div
-          className="mt-8 h-px w-64 md:w-96 bg-gradient-to-r from-transparent via-white to-transparent"
+          className="mt-8 h-px w-48 md:w-64 bg-gradient-to-r from-transparent via-white/70 to-transparent"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 3.2 }}
+          transition={{ duration: 1.2, delay: 3.1 }}
         />
 
         {/* CTA */}
@@ -183,7 +180,7 @@ export default function Hero() {
             const element = document.getElementById('agendar-turno');
             element?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="mt-12 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold tracking-widest hover:bg-white/20 transition-all duration-300 group relative overflow-hidden cursor-pointer"
+          className="mt-14 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold tracking-widest hover:bg-white/20 transition-all duration-300 group relative overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.5 }}
