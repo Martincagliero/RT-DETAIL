@@ -77,9 +77,9 @@ export default function EditorialSection() {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    textStroke: '2px rgba(255,255,255,0.2)',
+                    WebkitTextStroke: '2px rgba(255,255,255,0.2)',
                     textShadow: '0 0 60px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.1)'
-                  }}
+                  } as any}
                 >
                   {word}
                   {wordIndex < text.split(' ').length - 1 && ' '}
