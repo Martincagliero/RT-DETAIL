@@ -179,8 +179,8 @@ export default function MixedGallery() {
               {currentMedia.type === 'video' ? (
                 <video
                   className="w-full h-full object-contain"
-                  controls
                   autoPlay
+                  muted
                   loop
                   playsInline
                 >
