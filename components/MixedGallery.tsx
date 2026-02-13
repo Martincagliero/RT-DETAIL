@@ -12,17 +12,12 @@ interface MediaItem {
   alt: string;
 }
 
-// Galería con imágenes y videos reales
+// Galería con videos reales de autos
 const galleryMedia: MediaItem[] = [
-  // MOTOS - IMÁGENES REALES
-  { id: 1, type: 'image', src: '/motorcycles/1.jpg', alt: 'Detailing profesional de motocicleta' },
-  { id: 2, type: 'image', src: '/motorcycles/2.jpg', alt: 'Moto deportiva con acabado premium' },
-  { id: 3, type: 'image', src: '/motorcycles/3.jpg', alt: 'Trabajo especializado en motos' },
-  { id: 4, type: 'image', src: '/motorcycles/5.jpg', alt: 'Pulido y sellado en motocicletas' },
-  
-  // VIDEOS DE PROCESOS
-  { id: 5, type: 'video', src: '/videos/motos/principal.mp4', alt: 'Proceso de detailing en motocicleta' },
-  { id: 6, type: 'video', src: '/videos/motos/detalle.mp4', alt: 'Detalles de trabajo especializado' },
+  { id: 1, type: 'video', src: '/videos/galeria/MERCEDES BENZ 230CE.mp4', alt: 'Mercedes Benz 230CE - Detailing completo' },
+  { id: 2, type: 'video', src: '/videos/galeria/GOLF TSI🚀.📍Detallado de Interior y motor.📍Abrillantado en 2 pasos..En RT DETAIL nos dedicamos.mp4', alt: 'Golf TSI - Detallado de interior y motor' },
+  { id: 3, type: 'video', src: '/videos/galeria/Un poquito más de este hermoso AUDI S3 QUATTRO⚡️🇩🇪.En 𝗥𝗧 𝗗𝗘𝗧𝗔𝗜𝗟 nos dedicamos a la est.mp4', alt: 'Audi S3 Quattro - Estética y cuidado vehicular' },
+  { id: 4, type: 'video', src: '/videos/galeria/VOLKSWAGEN VENTO⚡️-En 𝗥𝗧 𝗗𝗘𝗧𝗔𝗜𝗟 nos dedicamos a la estética y cuidado vehicular, Proporc.mp4', alt: 'Volkswagen Vento - Estética vehicular' },
 ];
 
 export default function MixedGallery() {
@@ -73,7 +68,7 @@ export default function MixedGallery() {
           viewport={{ once: false }}
           transition={{ duration: 0.8 }}
         >
-          GALERÍA
+          GALERÍA AUTOS
         </motion.h2>
         <motion.p
           className="text-white/60 text-lg md:text-xl tracking-wider"
@@ -82,7 +77,7 @@ export default function MixedGallery() {
           viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Nuestros trabajos hablan por sí mismos
+          Trabajos especializados en vehículos
         </motion.p>
       </div>
 
