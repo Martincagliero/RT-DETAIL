@@ -307,8 +307,12 @@ export default function ServiceCard({ service, index }: { service: Service; inde
                     className="flex-1 rounded-[14px] bg-white text-deep-black font-semibold py-3 px-6 tracking-wider hover:bg-white/90 transition"
                     onClick={() => {
                       setIsOpen(false);
-                      const element = document.getElementById('agendar-turno');
-                      element?.scrollIntoView({ behavior: 'smooth' });
+                      requestAnimationFrame(() => {
+                        window.scrollTo({
+                          top: document.documentElement.scrollHeight,
+                          behavior: 'smooth'
+                        });
+                      });
                     }}
                   >
                     AGENDAR TURNO
