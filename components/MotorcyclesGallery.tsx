@@ -17,6 +17,8 @@ const motorcycleImages: MotorcycleImage[] = [
   { id: 2, src: '/motorcycles/2.jpg', alt: 'Moto deportiva con acabado premium', width: 600, height: 800 },
   { id: 3, src: '/motorcycles/3.jpg', alt: 'Trabajo especializado en motos', width: 600, height: 800 },
   { id: 4, src: '/motorcycles/5.jpg', alt: 'Pulido y sellado en motocicletas', width: 600, height: 800 },
+  { id: 5, src: '/motorcycles/8.jpg', alt: 'Detailing premium en motocicleta', width: 600, height: 800 },
+  { id: 6, src: '/motorcycles/9.jpg', alt: 'Acabado profesional en moto', width: 600, height: 800 },
 ];
 
 export default function MotorcyclesGallery() {
