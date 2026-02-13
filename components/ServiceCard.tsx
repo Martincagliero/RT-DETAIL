@@ -283,10 +283,18 @@ export default function ServiceCard({ service, index }: { service: Service; inde
                             muted
                             loop
                             playsInline
+                            preload="metadata"
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <Image src={src} alt={`${service.title} ${idx + 1}`} fill className="object-cover" />
+                          <Image
+                            src={src}
+                            alt={`${service.title} ${idx + 1}`}
+                            fill
+                            sizes="(min-width: 640px) 33vw, 100vw"
+                            quality={70}
+                            className="object-cover"
+                          />
                         )}
                       </div>
                     ))}
