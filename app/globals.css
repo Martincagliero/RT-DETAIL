@@ -40,6 +40,11 @@
     background-clip: text;
   }
 
+  .hero-glow {
+    animation: heroGlow 4s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.12);
+  }
+
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -89,5 +94,21 @@
 @keyframes reveal {
   to {
     clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes heroGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow {
+    animation: none;
   }
 }

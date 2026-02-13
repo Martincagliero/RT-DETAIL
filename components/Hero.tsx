@@ -158,7 +158,7 @@ export default function Hero() {
         {/* Main Title */}
         <div className="mb-6 overflow-hidden max-h-[18vh]">
           <h1
-            className="hero-title relative font-display leading-tight tracking-[0.08em] max-w-[65vw] mx-auto"
+            className="hero-title hero-glow relative font-display leading-tight tracking-[0.08em] max-w-[65vw] mx-auto"
             style={{ fontSize: 'clamp(3.5rem, 7vw, 6.5rem)' }}
           >
             <span className="text-white/90">RT</span>{' '}
