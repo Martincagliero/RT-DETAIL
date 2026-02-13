@@ -26,22 +26,20 @@ export default function Hero() {
   ];
 
   useEffect(() => {
-    // Animate title letters with subtle fade/blur/translate
-    const letters = document.querySelectorAll('.hero-letter');
+    // Animate title with subtle fade/blur/translate
     gsap.fromTo(
-      letters,
+      '.hero-title',
       {
         opacity: 0,
-        y: 24,
+        y: 30,
         filter: 'blur(6px)'
       },
       {
         opacity: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.03,
+        duration: 0.8,
+        ease: 'power2.out',
         delay: 2.2
       }
     );
@@ -61,6 +59,25 @@ export default function Hero() {
         duration: 0.9,
         ease: 'power3.out',
         delay: 2.6
+      }
+    );
+
+    // One-time metallic sheen across the title
+    gsap.fromTo(
+      '.hero-sheen',
+      {
+        x: '-120%',
+        opacity: 0
+      },
+      {
+        x: '120%',
+        opacity: 0.6,
+        duration: 1.1,
+        ease: 'power2.out',
+        delay: 3.1,
+        onComplete: () => {
+          gsap.to('.hero-sheen', { opacity: 0, duration: 0.3 });
+        }
       }
     );
 
@@ -141,18 +158,14 @@ export default function Hero() {
         {/* Main Title */}
         <div className="mb-6 overflow-hidden max-h-[18vh]">
           <h1
-            className="font-display leading-tight tracking-[0.08em] max-w-[65vw] mx-auto"
+            className="hero-title relative font-display leading-tight tracking-[0.08em] max-w-[65vw] mx-auto"
             style={{ fontSize: 'clamp(3.5rem, 7vw, 6.5rem)' }}
           >
-            {titleText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="hero-letter inline-block metallic-text"
-                style={{ transformOrigin: 'bottom center' }}
-              >
-                {letter}
-              </span>
-            ))}
+            <span className="text-white/90">RT</span>{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/80 via-metallic to-white/80">
+              DETAIL
+            </span>
+            <span className="hero-sheen pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
           </h1>
         </div>
 
