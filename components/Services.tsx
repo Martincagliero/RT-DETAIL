@@ -13,6 +13,20 @@ const services = [
     id: 1,
     title: 'ÓPTICOS',
     description: 'Restauración y pulido de faros para máxima claridad y estética.',
+    longDescription:
+      'Restauramos faros opacados y rayados para recuperar visibilidad nocturna y un frente mas limpio.',
+    benefits: [
+      'Mayor claridad y seguridad',
+      'Eliminacion de opacidad y amarilleo',
+      'Mejora estetica inmediata'
+    ],
+    duration: '45 a 90 min',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/opticas.jpg',
+      '/videos/servicios/233shots_so.png',
+      '/videos/servicios/493shots_so.png'
+    ],
     image: '/videos/servicios/opticas.jpg',
     direction: 'left' as const
   },
@@ -20,6 +34,20 @@ const services = [
     id: 2,
     title: 'SELLADOS',
     description: 'Protección cerámica de alta durabilidad para la pintura.',
+    longDescription:
+      'Sellado profesional que realza el brillo y protege la pintura contra contaminantes y clima.',
+    benefits: [
+      'Brillo profundo y tacto suave',
+      'Proteccion UV y quimica',
+      'Facil mantenimiento'
+    ],
+    duration: '4 a 8 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/493shots_so.png',
+      '/videos/servicios/6shots_so.png',
+      '/videos/servicios/233shots_so.png'
+    ],
     image: '/videos/proceso/sellados.jpg',
     direction: 'right' as const
   },
@@ -27,6 +55,20 @@ const services = [
     id: 3,
     title: 'TAPIZADOS',
     description: 'Limpieza profunda y restauración de interiores.',
+    longDescription:
+      'Limpieza integral de tapizados con extraccion, eliminando manchas y olores persistentes.',
+    benefits: [
+      'Remocion de manchas y olores',
+      'Higiene profunda',
+      'Recuperacion de color'
+    ],
+    duration: '3 a 5 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/233shots_so.png',
+      '/videos/servicios/6shots_so.png',
+      '/videos/servicios/493shots_so.png'
+    ],
     image: '/videos/servicios/tapizados.mp4',
     direction: 'left' as const,
     isVideo: true
@@ -35,6 +77,20 @@ const services = [
     id: 4,
     title: 'RUEDAS',
     description: 'Detailing completo de llantas y neumáticos.',
+    longDescription:
+      'Descontaminacion y limpieza profunda de llantas, neumáticos y pasos de rueda.',
+    benefits: [
+      'Acabado satinado en neumaticos',
+      'Eliminacion de polvo de frenos',
+      'Proteccion contra suciedad'
+    ],
+    duration: '1 a 2 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/6shots_so.png',
+      '/videos/servicios/233shots_so.png',
+      '/videos/servicios/493shots_so.png'
+    ],
     image: '/videos/servicios/ruedas.mp4',
     direction: 'right' as const,
     isVideo: true
@@ -43,6 +99,20 @@ const services = [
     id: 5,
     title: 'INTERIORES',
     description: 'Limpieza exhaustiva y acondicionamiento interior.',
+    longDescription:
+      'Acondicionamiento completo de interiores con limpieza de paneles, cueros y plasticos.',
+    benefits: [
+      'Ambiente limpio y renovado',
+      'Proteccion de superficies',
+      'Detalles finos en cada area'
+    ],
+    duration: '3 a 6 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/493shots_so.png',
+      '/videos/servicios/233shots_so.png',
+      '/videos/servicios/6shots_so.png'
+    ],
     image: '/videos/servicios/interiores.mp4',
     direction: 'left' as const,
     isVideo: true
@@ -51,6 +121,20 @@ const services = [
     id: 6,
     title: 'CHASIS',
     description: 'Limpieza y protección del chasis y bajos.',
+    longDescription:
+      'Limpieza tecnica del chasis y bajos con proteccion contra humedad y corrosión.',
+    benefits: [
+      'Eliminacion de barro y grasa',
+      'Proteccion anticorrosiva',
+      'Mejor preservacion a largo plazo'
+    ],
+    duration: '2 a 4 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/233shots_so.png',
+      '/videos/servicios/493shots_so.png',
+      '/videos/servicios/6shots_so.png'
+    ],
     image: '/videos/servicios/chasis.mp4',
     direction: 'right' as const,
     isVideo: true
@@ -59,6 +143,20 @@ const services = [
     id: 7,
     title: 'MOTORES PULIDOS',
     description: 'Detailing de motor para un acabado impecable.',
+    longDescription:
+      'Limpieza y detailing de motor con proteccion de componentes y acabado premium.',
+    benefits: [
+      'Aspecto profesional del vano',
+      'Proteccion de gomas y plasticos',
+      'Mejor presentacion general'
+    ],
+    duration: '2 a 3 hs',
+    price: 'Consultar precio',
+    gallery: [
+      '/videos/servicios/493shots_so.png',
+      '/videos/servicios/6shots_so.png',
+      '/videos/servicios/233shots_so.png'
+    ],
     image: '/videos/servicios/motores.mp4',
     direction: 'left' as const,
     isVideo: true

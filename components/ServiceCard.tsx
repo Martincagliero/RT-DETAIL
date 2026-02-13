@@ -1,13 +1,18 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
 
 interface Service {
   id: number;
   title: string;
   description: string;
+  longDescription: string;
+  benefits: string[];
+  duration: string;
+  price: string;
+  gallery: string[];
   image: string;
   direction: 'left' | 'right';
   isVideo?: boolean;
@@ -16,6 +21,7 @@ interface Service {
 export default function ServiceCard({ service, index }: { service: Service; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -45,6 +51,18 @@ export default function ServiceCard({ service, index }: { service: Service; inde
     mouseY.set(0);
     setIsHovered(false);
   };
+
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const isEven = index % 2 === 0;
 
@@ -168,6 +186,7 @@ export default function ServiceCard({ service, index }: { service: Service; inde
             viewport={{ once: false, amount: 0.8 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             whileHover={{ x: 10 }}
+            onClick={() => setIsOpen(true)}
           >
             <span>MÁS INFO</span>
             <motion.svg
@@ -186,6 +205,108 @@ export default function ServiceCard({ service, index }: { service: Service; inde
           </motion.button>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black/80 backdrop-blur-sm px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsOpen(false)}
+          >
+            <motion.div
+              className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-[18px] bg-graphite-950 border border-white/10 shadow-2xl"
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-all"
+                onClick={() => setIsOpen(false)}
+                aria-label="Cerrar"
+              >
+                <span className="text-xl">×</span>
+              </button>
+
+              <div className="px-6 py-8 md:px-10 md:py-10 space-y-8">
+                <div className="space-y-3">
+                  <p className="text-white/50 text-sm tracking-[0.3em]">SERVICIO</p>
+                  <h3 className="font-display text-4xl md:text-5xl metallic-text">
+                    {service.title}
+                  </h3>
+                  <p className="text-white/70 text-base md:text-lg leading-relaxed">
+                    {service.longDescription}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <h4 className="text-white font-semibold tracking-wider">BENEFICIOS INCLUIDOS</h4>
+                    <ul className="space-y-2 text-white/70 text-sm md:text-base">
+                      {service.benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-start gap-3">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/70" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-white/50 text-sm uppercase tracking-widest">Duracion</p>
+                      <p className="text-white text-lg font-semibold">{service.duration}</p>
+                    </div>
+                    <div>
+                      <p className="text-white/50 text-sm uppercase tracking-widest">Precio</p>
+                      <p className="text-white text-lg font-semibold">{service.price}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-white font-semibold tracking-wider">GALERIA</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {service.gallery.map((src, idx) => (
+                      <div
+                        key={`${service.id}-gallery-${idx}`}
+                        className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-graphite-900 border border-white/10"
+                      >
+                        <Image src={src} alt={`${service.title} ${idx + 1}`} fill className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    type="button"
+                    className="flex-1 rounded-[14px] bg-white text-deep-black font-semibold py-3 px-6 tracking-wider hover:bg-white/90 transition"
+                    onClick={() => {
+                      setIsOpen(false);
+                      const element = document.getElementById('agendar-turno');
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    AGENDAR TURNO
+                  </button>
+                  <button
+                    type="button"
+                    className="flex-1 rounded-[14px] border border-white/30 text-white/80 font-semibold py-3 px-6 tracking-wider hover:text-white hover:border-white transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    CERRAR
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
