@@ -51,7 +51,7 @@ export default function MotorcyclesGallery() {
           viewport={{ once: false }}
           transition={{ duration: 0.8 }}
         >
-          GALERÍA
+          GALERÍA MOTOQUERA
         </motion.h2>
         <motion.p
           className="text-white/60 text-lg md:text-xl tracking-wider"
