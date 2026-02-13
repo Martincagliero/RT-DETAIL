@@ -13,12 +13,10 @@ interface MotorcycleImage {
 }
 
 const motorcycleImages: MotorcycleImage[] = [
-  { id: 1, src: '/public/motorcycles/1.jpg', alt: 'Moto detailing 1', width: 400, height: 300 },
-  { id: 2, src: '/public/motorcycles/2.jpg', alt: 'Moto detailing 2', width: 600, height: 400 },
-  { id: 3, src: '/public/motorcycles/3.jpg', alt: 'Moto detailing 3', width: 400, height: 500 },
-  { id: 4, src: '/public/motorcycles/4.jpg', alt: 'Moto detailing 4', width: 600, height: 300 },
-  { id: 5, src: '/public/motorcycles/5.jpg', alt: 'Moto detailing 5', width: 400, height: 450 },
-  { id: 6, src: '/public/motorcycles/6.jpg', alt: 'Moto detailing 6', width: 400, height: 400 },
+  { id: 1, src: '/videos/motos/1.jpg', alt: 'Detailing profesional de motocicleta', width: 600, height: 800 },
+  { id: 2, src: '/videos/motos/2.jpg', alt: 'Moto deportiva con acabado premium', width: 600, height: 800 },
+  { id: 3, src: '/videos/motos/3.jpg', alt: 'Trabajo especializado en motos', width: 600, height: 800 },
+  { id: 4, src: '/videos/motos/5.jpg', alt: 'Pulido y sellado en motocicletas', width: 600, height: 800 },
 ];
 
 export default function MotorcyclesGallery() {
@@ -72,7 +70,7 @@ export default function MotorcyclesGallery() {
           {motorcycleImages.map((image, index) => (
             <motion.div
               key={image.id}
-              className="relative break-inside-avoid group cursor-pointer overflow-hidden rounded-sm bg-graphite-900"
+              className="relative break-inside-avoid group cursor-pointer rounded-sm bg-graphite-900 overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.1 }}
@@ -80,48 +78,28 @@ export default function MotorcyclesGallery() {
               onClick={() => setSelectedImage(image.id)}
             >
               {/* Image */}
-              <div className="relative aspect-square md:aspect-auto overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden transition-transform duration-300 ease-out group-hover:scale-[1.08]">
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  onError={(e) => {
-                    // Fallback gradient si no carga imagen
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* Fallback gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-graphite-700 to-deep-black" />
               </div>
 
               {/* Overlay oscuro elegante */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-deep-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
+              <div
+                className="absolute inset-0 bg-deep-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out flex items-center justify-center"
               >
-                {/* Icon play o zoom */}
-                <motion.div
-                  className="w-16 h-16 border-2 border-white/60 rounded-full flex items-center justify-center"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <div className="w-0 h-0 border-l-8 border-l-white/60 border-t-5 border-t-transparent border-b-5 border-b-transparent ml-1" />
-                </motion.div>
-              </motion.div>
+                <p className="text-white font-semibold text-sm md:text-base tracking-wide text-center px-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {image.alt}
+                </p>
+              </div>
 
-              {/* Border glow on hover */}
-              <motion.div
-                className="absolute inset-0 border border-white/0 group-hover:border-white/30 rounded-sm transition-all duration-300"
-                style={{
-                  boxShadow: 'none'
-                }}
-                whileHover={{
-                  boxShadow: '0 0 30px rgba(255,255,255,0.15)'
-                }}
-              />
+              {/* Border */}
+              <div className="absolute inset-0 border border-white/10 group-hover:border-white/30 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>
@@ -157,13 +135,12 @@ export default function MotorcyclesGallery() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image */}
-              <div className="relative w-full h-auto bg-graphite-900 rounded-sm overflow-hidden">
+              <div className="relative w-full aspect-[4/3] bg-graphite-900 rounded-sm overflow-hidden">
                 <Image
                   src={currentImage.src}
                   alt={currentImage.alt}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-contain"
+                  fill
+                  className="object-contain"
                   priority
                 />
               </div>
