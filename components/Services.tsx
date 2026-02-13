@@ -1,0 +1,206 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ServiceCard from './ServiceCard';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  {
+    id: 1,
+    title: 'ÓPTICOS',
+    description: 'Restauración y pulido de faros para máxima claridad y estética.',
+    image: '/videos/servicios/opticas.jpg',
+    direction: 'left' as const
+  },
+  {
+    id: 2,
+    title: 'SELLADOS',
+    description: 'Protección cerámica de alta durabilidad para la pintura.',
+    image: '/videos/proceso/sellados.jpg',
+    direction: 'right' as const
+  },
+  {
+    id: 3,
+    title: 'TAPIZADOS',
+    description: 'Limpieza profunda y restauración de interiores.',
+    image: '/videos/servicios/tapizados.mp4',
+    direction: 'left' as const,
+    isVideo: true
+  },
+  {
+    id: 4,
+    title: 'RUEDAS',
+    description: 'Detailing completo de llantas y neumáticos.',
+    image: '/videos/servicios/ruedas.mp4',
+    direction: 'right' as const,
+    isVideo: true
+  },
+  {
+    id: 5,
+    title: 'INTERIORES',
+    description: 'Limpieza exhaustiva y acondicionamiento interior.',
+    image: '/videos/servicios/interiores.mp4',
+    direction: 'left' as const,
+    isVideo: true
+  },
+  {
+    id: 6,
+    title: 'CHASIS',
+    description: 'Limpieza y protección del chasis y bajos.',
+    image: '/videos/servicios/chasis.mp4',
+    direction: 'right' as const,
+    isVideo: true
+  },
+  {
+    id: 7,
+    title: 'MOTORES PULIDOS',
+    description: 'Detailing de motor para un acabado impecable.',
+    image: '/videos/servicios/motores.mp4',
+    direction: 'left' as const,
+    isVideo: true
+  }
+];
+
+export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Animate section title
+      gsap.from(titleRef.current, {
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: 'top 80%',
+          end: 'top 20%',
+          scrub: 1,
+        },
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+      });
+
+      // Animate service cards
+      services.forEach((service, index) => {
+        const direction = service.direction === 'left' ? -100 : 100;
+        
+        gsap.from(`.service-card-${service.id}`, {
+          scrollTrigger: {
+            trigger: `.service-card-${service.id}`,
+            start: 'top 85%',
+            end: 'top 30%',
+            scrub: 1,
+            markers: false,
+          },
+          x: direction,
+          opacity: 0,
+          rotation: service.direction === 'left' ? -5 : 5,
+        });
+      });
+
+      // Animate decorative lines
+      gsap.from('.service-line', {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 60%',
+          end: 'top 20%',
+          scrub: 1,
+        },
+        scaleX: 0,
+        transformOrigin: 'left center',
+      });
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen py-32 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-deep-black via-graphite-950 to-deep-black overflow-hidden"
+    >
+      {/* Background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* Section Title */}
+      <div className="relative z-10 mb-24 text-center">
+        <motion.div
+          className="service-line h-px w-32 mx-auto mb-8 bg-gradient-to-r from-transparent via-white to-transparent"
+        />
+        <h2
+          ref={titleRef}
+          className="font-display text-6xl md:text-8xl lg:text-9xl metallic-text mb-6"
+        >
+          SERVICIOS
+        </h2>
+        <motion.p
+          className="text-white/60 text-lg md:text-xl tracking-wider max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          Tratamientos premium para cada aspecto de tu vehículo
+        </motion.p>
+      </div>
+
+      {/* Services Grid */}
+      <div className="relative z-10 space-y-24 md:space-y-32 max-w-7xl mx-auto">
+        {services.map((service, index) => (
+          <div key={service.id} className="relative">
+            <ServiceCard service={service} index={index} />
+            
+            {/* Separator line between cards */}
+            {index < services.length - 1 && (
+              <motion.div
+                className="service-line mt-24 md:mt-32 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: false, amount: 0.8 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Floating decorative elements */}
+      <motion.div
+        className="absolute top-1/4 right-[10%] w-64 h-64 bg-white/5 rounded-full blur-3xl"
+        animate={{
+          y: [0, 50, 0],
+          opacity: [0.3, 0.5, 0.3]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-[10%] w-96 h-96 bg-metallic/5 rounded-full blur-3xl"
+        animate={{
+          y: [0, -50, 0],
+          opacity: [0.2, 0.4, 0.2]
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+    </section>
+  );
+}

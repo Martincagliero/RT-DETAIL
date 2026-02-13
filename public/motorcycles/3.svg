@@ -1,0 +1,19 @@
+<svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="600" fill="#0d0d0d"/>
+  <defs>
+    <radialGradient id="grad3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#555555;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0d0d;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="450" r="55" fill="url(#grad3)" stroke="#888" stroke-width="2"/>
+  <circle cx="320" cy="450" r="55" fill="url(#grad3)" stroke="#888" stroke-width="2"/>
+  <path d="M 100 410 L 300 410 L 280 100 Q 200 50 120 100 Z" fill="#0f0f0f" stroke="#aaa" stroke-width="3"/>
+  <g stroke="#777" stroke-width="2" fill="none">
+    <rect x="160" y="80" width="80" height="120" rx="10"/>
+    <circle cx="200" cy="140" r="25" fill="#222"/>
+  </g>
+  <line x1="200" y1="230" x2="90" y2="400" stroke="#666" stroke-width="1"/>
+  <line x1="200" y1="230" x2="310" y2="400" stroke="#666" stroke-width="1"/>
+  <text x="200" y="570" font-size="24" fill="#444" text-anchor="middle" font-family="monospace">MOTO_03</text>
+</svg>

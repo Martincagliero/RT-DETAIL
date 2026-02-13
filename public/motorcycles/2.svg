@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#0d0d0d"/>
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0d0d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="90" cy="380" r="50" fill="url(#grad2)" stroke="#777" stroke-width="2"/>
+  <circle cx="310" cy="380" r="50" fill="url(#grad2)" stroke="#777" stroke-width="2"/>
+  <path d="M 110 350 L 290 350 L 270 150 Q 200 120 130 150 Z" fill="#1a1a1a" stroke="#999" stroke-width="2"/>
+  <ellipse cx="200" cy="200" rx="35" ry="50" fill="#333" stroke="#888" stroke-width="1"/>
+  <rect x="170" y="100" width="60" height="80" fill="#222" stroke="#666" stroke-width="2" rx="8"/>
+  <circle cx="200" cy="300" r="6" fill="#888"/>
+  <text x="200" y="470" font-size="22" fill="#555" text-anchor="middle" font-family="monospace">MOTO_02</text>
+</svg>

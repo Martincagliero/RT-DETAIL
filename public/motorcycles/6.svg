@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#0d0d0d"/>
+  <defs>
+    <radialGradient id="grad6" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#444444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0d0d;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <circle cx="95" cy="300" r="42" fill="url(#grad6)" stroke="#888" stroke-width="2"/>
+  <circle cx="305" cy="300" r="42" fill="url(#grad6)" stroke="#888" stroke-width="2"/>
+  <path d="M 115 260 L 285 260 L 265 80 Q 200 40 135 80 Z" fill="#0a0a0a" stroke="#999" stroke-width="2"/>
+  <g fill="#1f1f1f">
+    <rect x="170" y="30" width="60" height="85" rx="6" stroke="#777" stroke-width="2"/>
+    <circle cx="200" cy="70" r="16" fill="#333" stroke="#666" stroke-width="1"/>
+  </g>
+  <path d="M 200 115 Q 180 180 150 260 M 200 115 Q 220 180 250 260" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="200" y="360" font-size="20" fill="#555" text-anchor="middle" font-family="monospace">MOTO_06</text>
+</svg>

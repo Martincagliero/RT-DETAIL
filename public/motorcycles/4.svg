@@ -1,0 +1,16 @@
+<svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="400" fill="#0d0d0d"/>
+  <defs>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#333333;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="120" cy="320" r="45" fill="url(#grad4)" stroke="#777" stroke-width="2"/>
+  <circle cx="380" cy="320" r="45" fill="url(#grad4)" stroke="#777" stroke-width="2"/>
+  <path d="M 140 280 L 360 280 L 340 120 Q 250 80 160 120 Z" fill="#161616" stroke="#999" stroke-width="2"/>
+  <rect x="220" y="60" width="60" height="90" fill="#2a2a2a" stroke="#777" stroke-width="2" rx="5"/>
+  <circle cx="250" cy="150" r="20" fill="#333" stroke="#666" stroke-width="1"/>
+  <polygon points="250,200 200,220 300,220" fill="#222" stroke="#888" stroke-width="1"/>
+  <text x="250" y="370" font-size="20" fill="#555" text-anchor="middle" font-family="monospace">MOTO_04</text>
+</svg>
