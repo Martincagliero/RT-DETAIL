@@ -73,19 +73,20 @@ export default function MixedGallery() {
       </div>
 
       {/* Responsive Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
-          {galleryMedia.map((media, index) => (
-            <motion.div
-              key={media.id}
-              className="relative group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => setSelectedMedia(media.id)}
-            >
-              <div className="relative overflow-hidden rounded-sm bg-graphite-900 aspect-[4/5] transition-transform duration-300 ease-out group-hover:scale-[1.08]">
+      <div className="flex justify-center">
+        <div className="max-w-[70%] w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {galleryMedia.map((media, index) => (
+              <motion.div
+                key={media.id}
+                className="relative group cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onClick={() => setSelectedMedia(media.id)}
+              >
+                <div className="relative overflow-hidden rounded-[14px] bg-graphite-900 aspect-video transition-transform duration-300 ease-out group-hover:scale-[1.03]">
                 {media.type === 'video' ? (
                   <>
                     {/* Video preview */}
@@ -134,6 +135,7 @@ export default function MixedGallery() {
             </motion.div>
           ))}
         </div>
+      </div>
       </div>
 
       {/* Lightbox */}
