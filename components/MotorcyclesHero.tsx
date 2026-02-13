@@ -86,7 +86,7 @@ export default function MotorcyclesHero() {
       <div className="relative z-10 h-full flex items-center justify-center px-4">
         <motion.div
           ref={titleRef}
-          className="text-center max-w-4xl"
+          className="text-center max-w-6xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -101,7 +101,7 @@ export default function MotorcyclesHero() {
           />
 
           {/* Título con reveal */}
-          <h2 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] tracking-tighter">
+          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
             {titleText.split('').map((letter, i) => (
               <span
                 key={i}

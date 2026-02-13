@@ -87,14 +87,14 @@ export default function MotorcyclesImpact() {
         {/* Giant text with letter-by-letter reveal */}
         <div
           ref={textRef}
-          className="relative"
+          className="relative max-w-5xl mx-auto"
         >
-          <h2 className="font-display text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] leading-[0.9] tracking-[-0.02em] font-bold">
+          <h2 className="font-display leading-[1.2] tracking-[-0.02em] font-bold" style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)' }}>
             {text.split('').map((char, index) => (
               <span
                 key={index}
                 className={`inline-block ${
-                  char === ' ' ? 'w-[0.5em]' : ''
+                  char === ' ' ? 'w-[0.3em]' : ''
                 } ${
                   char === char.toUpperCase() && char !== ' '
                     ? 'text-white'

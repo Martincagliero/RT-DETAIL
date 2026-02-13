@@ -142,7 +142,7 @@ export default function Hero() {
       >
         {/* Main Title */}
         <div className="mb-4 overflow-hidden max-h-[15vh]">
-          <h1 className="font-display leading-tight" style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}>
+          <h1 className="font-display leading-tight" style={{ fontSize: 'clamp(4rem, 9vw, 7rem)' }}>
             {titleText.split('').map((letter, i) => (
               <span
                 key={i}
@@ -179,7 +179,11 @@ export default function Hero() {
 
         {/* CTA */}
         <motion.button
-          className="mt-12 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold tracking-widest hover:bg-white/20 transition-all duration-300 group relative overflow-hidden"
+          onClick={() => {
+            const element = document.getElementById('agendar-turno');
+            element?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="mt-12 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold tracking-widest hover:bg-white/20 transition-all duration-300 group relative overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.5 }}
@@ -198,7 +202,7 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 4 }}
@@ -214,7 +218,7 @@ export default function Hero() {
             transition={{ duration: 1.5, repeat: Infinity }}
           />
         </motion.div>
-        <p className="text-white/50 text-xs mt-2 tracking-widest">SCROLL</p>
+        <p className="text-white/50 text-xs mt-4 tracking-widest whitespace-nowrap">SCROLL</p>
       </motion.div>
     </section>
   );
