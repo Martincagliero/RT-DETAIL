@@ -37,25 +37,6 @@ export default function LocationMap() {
             />
           </div>
         </div>
-
-        {/* Información de contacto debajo del mapa */}
-        <div className="mt-8 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-gray-400">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">📍</span>
-              <span className="text-sm sm:text-base">Martínez, San Isidro, Buenos Aires</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">📞</span>
-              <a 
-                href="tel:+5491168508827" 
-                className="text-sm sm:text-base hover:text-white transition-colors"
-              >
-                +54 9 11 6850-8827
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </motion.section>
   );
