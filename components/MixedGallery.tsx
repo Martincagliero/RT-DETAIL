@@ -81,13 +81,13 @@ export default function MixedGallery() {
         </motion.p>
       </div>
 
-      {/* Masonry Grid */}
+      {/* Responsive Grid */}
       <div className="max-w-7xl mx-auto">
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {galleryMedia.map((media, index) => (
             <motion.div
               key={media.id}
-              className="relative break-inside-avoid group cursor-pointer"
+              className="relative group cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.1 }}
