@@ -276,7 +276,18 @@ export default function ServiceCard({ service, index }: { service: Service; inde
                         key={`${service.id}-gallery-${idx}`}
                         className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-graphite-900 border border-white/10"
                       >
-                        <Image src={src} alt={`${service.title} ${idx + 1}`} fill className="object-cover" />
+                        {src.endsWith('.mp4') ? (
+                          <video
+                            src={src}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <Image src={src} alt={`${service.title} ${idx + 1}`} fill className="object-cover" />
+                        )}
                       </div>
                     ))}
                   </div>

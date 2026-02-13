@@ -23,9 +23,9 @@ const services = [
     duration: '45 a 90 min',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/opticas.jpg',
-      '/videos/servicios/233shots_so.png',
-      '/videos/servicios/493shots_so.png'
+      '/images/services/01-opticos/optico-1.webp',
+      '/images/services/01-opticos/optico-2.jpg',
+      '/images/services/01-opticos/optico-3.jpg'
     ],
     image: '/videos/servicios/opticas.jpg',
     direction: 'left' as const
@@ -44,9 +44,9 @@ const services = [
     duration: '4 a 8 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/493shots_so.png',
-      '/videos/servicios/6shots_so.png',
-      '/videos/servicios/233shots_so.png'
+      '/images/services/02-sellados/sellado-1.webp',
+      '/images/services/02-sellados/sellado-2.jpg',
+      '/images/services/02-sellados/sellado-3.jpg'
     ],
     image: '/videos/proceso/sellados.jpg',
     direction: 'right' as const
@@ -65,9 +65,9 @@ const services = [
     duration: '3 a 5 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/233shots_so.png',
-      '/videos/servicios/6shots_so.png',
-      '/videos/servicios/493shots_so.png'
+      '/images/services/03-tapizados/tapizado-1.webp',
+      '/images/services/03-tapizados/tapizado-2.webp',
+      '/images/services/03-tapizados/tapizado-3.jpg'
     ],
     image: '/videos/servicios/tapizados.mp4',
     direction: 'left' as const,
@@ -87,9 +87,9 @@ const services = [
     duration: '1 a 2 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/6shots_so.png',
-      '/videos/servicios/233shots_so.png',
-      '/videos/servicios/493shots_so.png'
+      '/images/services/04-ruedas/ruedas-1.jpg',
+      '/images/services/04-ruedas/ruedas-2.webp',
+      '/images/services/04-ruedas/ruedas-3.webp'
     ],
     image: '/videos/servicios/ruedas.mp4',
     direction: 'right' as const,
@@ -109,9 +109,9 @@ const services = [
     duration: '3 a 6 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/493shots_so.png',
-      '/videos/servicios/233shots_so.png',
-      '/videos/servicios/6shots_so.png'
+      '/images/services/05-interiores/interiores-1.webp',
+      '/images/services/05-interiores/interiores-2.webp',
+      '/images/services/05-interiores/interiores-3.webp'
     ],
     image: '/videos/servicios/interiores.mp4',
     direction: 'left' as const,
@@ -131,9 +131,9 @@ const services = [
     duration: '2 a 4 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/233shots_so.png',
-      '/videos/servicios/493shots_so.png',
-      '/videos/servicios/6shots_so.png'
+      '/images/services/06-chasis/chasis-1.jpg',
+      '/images/services/06-chasis/chasis-2.webp',
+      '/images/services/06-chasis/chasis-3.webp'
     ],
     image: '/videos/servicios/chasis.mp4',
     direction: 'right' as const,
@@ -153,9 +153,9 @@ const services = [
     duration: '2 a 3 hs',
     price: 'Consultar precio',
     gallery: [
-      '/videos/servicios/493shots_so.png',
-      '/videos/servicios/6shots_so.png',
-      '/videos/servicios/233shots_so.png'
+      '/images/services/07-motores/motores-1.webp',
+      '/images/services/07-motores/motores-2.webp',
+      '/images/services/07-motores/motores-3.mp4'
     ],
     image: '/videos/servicios/motores.mp4',
     direction: 'left' as const,
