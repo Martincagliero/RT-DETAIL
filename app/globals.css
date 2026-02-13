@@ -41,8 +41,8 @@
   }
 
   .hero-glow {
-    animation: heroGlow 4s ease-in-out infinite;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.12);
+    animation: heroGlow 4.5s ease-in-out infinite;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.07);
   }
 
   .hide-scrollbar {
@@ -100,10 +100,10 @@
 @keyframes heroGlow {
   0%,
   100% {
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
   }
   50% {
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
   }
 }
 
